@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -19,8 +19,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <Link href="/" className="flex items-center gap-2" data-testid="link-home">
-          <Sun className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold text-foreground">Klester Tech</span>
+          <img src="/attached_assets/logo_1759233854718.png" alt="Klester Tech" className="h-10" />
         </Link>
 
         <div className="hidden md:flex md:gap-x-8">
