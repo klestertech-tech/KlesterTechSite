@@ -4,7 +4,8 @@ import StatsSection from "@/components/StatsSection";
 import BenefitCard from "@/components/BenefitCard";
 import { Button } from "@/components/ui/button";
 import { Zap, Leaf, Wrench, Sun, TrendingUp, Users } from "lucide-react";
-import heroImage from "@assets/generated_images/Solar_panels_rooftop_installation_b63b6b05.png";
+import heroImage from "@assets/stock_images/solar_panels_on_mode_e62b7393.jpg";
+import aboutImage from "@assets/stock_images/solar_technician_ins_98a867bb.jpg";
 
 export default function Home() {
   const stats = [
@@ -61,7 +62,7 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
+            <div className="animate-in fade-in slide-in-from-left-8 duration-700">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-about-title">
                 About Klester Tech
               </h2>
@@ -75,11 +76,11 @@ export default function Home() {
                 <Button data-testid="button-learn-more">Learn More About Us</Button>
               </Link>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
+            <div className="relative h-96 rounded-lg overflow-hidden animate-in fade-in slide-in-from-right-8 duration-700">
               <img
-                src={heroImage}
+                src={aboutImage}
                 alt="Solar installation"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
               />
             </div>
           </div>
@@ -88,7 +89,7 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-benefits-title">
               Why Choose Solar?
             </h2>
@@ -98,7 +99,13 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
-              <BenefitCard key={index} {...benefit} />
+              <div
+                key={index}
+                className="animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 100}ms`, animationDuration: '600ms' }}
+              >
+                <BenefitCard {...benefit} />
+              </div>
             ))}
           </div>
         </div>

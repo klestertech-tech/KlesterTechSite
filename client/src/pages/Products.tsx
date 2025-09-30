@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import { Badge } from "@/components/ui/badge";
 import { Grid3x3, Battery, Droplet, Power, Lightbulb, BarChart3, Cpu, Wifi, Sun, Cloud, Box, Gauge } from "lucide-react";
+import productsHeroImage from "@assets/stock_images/clean_energy_solar_p_a7b90505.jpg";
 
 export default function Products() {
   const products = [
@@ -51,13 +52,20 @@ export default function Products() {
       <Hero
         title="Our Solar Products"
         subtitle="Comprehensive range of solar-powered products designed for homes, businesses, and industries"
+        backgroundImage={productsHeroImage}
       />
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => (
-              <ProductCard key={index} {...product} />
+              <div
+                key={index}
+                className="animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 100}ms`, animationDuration: '600ms' }}
+              >
+                <ProductCard {...product} />
+              </div>
             ))}
           </div>
         </div>
@@ -65,7 +73,7 @@ export default function Products() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-tech-title">
               Advanced Solar Technologies
             </h2>
@@ -79,7 +87,8 @@ export default function Products() {
               return (
                 <div
                   key={index}
-                  className="flex items-center gap-4 rounded-lg border bg-background p-4 hover-elevate transition-all"
+                  className="flex items-center gap-4 rounded-lg border bg-background p-4 hover-elevate transition-all animate-in fade-in slide-in-from-bottom-4"
+                  style={{ animationDelay: `${index * 80}ms`, animationDuration: '500ms' }}
                   data-testid={`tech-${index}`}
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 flex-shrink-0">

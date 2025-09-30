@@ -12,7 +12,6 @@ export default function Navbar() {
     { path: "/about", label: "About" },
     { path: "/products", label: "Products" },
     { path: "/solutions", label: "Solutions" },
-    { path: "/portfolio", label: "Portfolio" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -32,13 +31,16 @@ export default function Navbar() {
               data-testid={`link-nav-${item.label.toLowerCase()}`}
             >
               <span
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`relative text-sm font-medium transition-all duration-200 hover:text-primary ${
                   location === item.path
                     ? "text-primary"
                     : "text-muted-foreground"
                 }`}
               >
                 {item.label}
+                {location === item.path && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"></span>
+                )}
               </span>
             </Link>
           ))}
@@ -65,9 +67,9 @@ export default function Navbar() {
       </nav>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-t" data-testid="mobile-menu">
+        <div className="md:hidden border-t animate-in slide-in-from-top-2 duration-200" data-testid="mobile-menu">
           <div className="space-y-1 px-6 py-4">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Link
                 key={item.path}
                 href={item.path}
@@ -75,11 +77,12 @@ export default function Navbar() {
                 data-testid={`link-mobile-${item.label.toLowerCase()}`}
               >
                 <span
-                  className={`block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent ${
+                  className={`block rounded-md px-3 py-2 text-base font-medium transition-all duration-200 hover:bg-accent hover-elevate ${
                     location === item.path
-                      ? "text-primary"
+                      ? "text-primary bg-accent"
                       : "text-muted-foreground"
                   }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.label}
                 </span>

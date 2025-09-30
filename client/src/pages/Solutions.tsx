@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import SolutionCard from "@/components/SolutionCard";
 import ProcessSteps from "@/components/ProcessSteps";
 import { Home, Building2, Factory, Tractor, Search, Pencil, Package, Wrench, Settings } from "lucide-react";
+import residentialImage from "@assets/stock_images/residential_solar_pa_43c6b093.jpg";
+import industrialImage from "@assets/stock_images/industrial_factory_w_29acde53.jpg";
 
 export default function Solutions() {
   const solutions = [
@@ -44,13 +46,20 @@ export default function Solutions() {
       <Hero
         title="Tailored Solar Solutions"
         subtitle="We deliver customized solutions that meet the diverse needs of residential, commercial, and industrial customers"
+        backgroundImage={industrialImage}
       />
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2">
             {solutions.map((solution, index) => (
-              <SolutionCard key={index} {...solution} />
+              <div
+                key={index}
+                className="animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 150}ms`, animationDuration: '700ms' }}
+              >
+                <SolutionCard {...solution} />
+              </div>
             ))}
           </div>
         </div>
@@ -58,7 +67,7 @@ export default function Solutions() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-process-title">
               Our Solution Process
             </h2>
@@ -66,7 +75,9 @@ export default function Solutions() {
               A proven 5-step approach to delivering successful solar projects
             </p>
           </div>
-          <ProcessSteps steps={steps} />
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <ProcessSteps steps={steps} />
+          </div>
         </div>
       </section>
     </div>

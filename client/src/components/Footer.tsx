@@ -69,13 +69,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio">
-                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-portfolio">
-                    Portfolio
-                  </span>
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact">
                   <span className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-footer-contact">
                     Contact

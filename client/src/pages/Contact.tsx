@@ -91,7 +91,7 @@ export default function Contact() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-why-choose-title">
               Why Choose Us?
             </h2>
@@ -100,7 +100,12 @@ export default function Contact() {
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
               return (
-                <Card key={index} className="hover-elevate transition-all" data-testid={`card-reason-${index}`}>
+                <Card 
+                  key={index} 
+                  className="hover-elevate transition-all animate-in fade-in slide-in-from-bottom-4" 
+                  style={{ animationDelay: `${index * 100}ms`, animationDuration: '600ms' }}
+                  data-testid={`card-reason-${index}`}
+                >
                   <CardContent className="p-6 text-center">
                     <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
                       <Icon className="h-7 w-7 text-primary" />

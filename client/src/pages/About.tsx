@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ImpactCard from "@/components/ImpactCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { DollarSign, Leaf, Zap, Users2, MapPin, Phone, Mail } from "lucide-react";
+import solarFarmImage from "@assets/stock_images/commercial_solar_far_25d05c6a.jpg";
 
 export default function About() {
   const missions = [
@@ -39,14 +40,15 @@ export default function About() {
       <Hero
         title="About Klester Tech"
         subtitle="Committed to delivering innovative renewable energy solutions that combine efficiency, reliability, and long-term value."
+        backgroundImage={solarFarmImage}
       />
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8" data-testid="text-story-title">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500" data-testid="text-story-title">
             Our Story
           </h2>
-          <div className="prose max-w-none text-muted-foreground">
+          <div className="prose max-w-none text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
             <p className="text-lg mb-6">
               Founded with the vision to empower communities and businesses with clean energy, Klester Tech has grown to become a leading provider of solar energy solutions in Tamil Nadu. We provide end-to-end services covering every stage of a solar project — from initial feasibility studies to engineering design, procurement, installation, and long-term maintenance.
             </p>
@@ -62,14 +64,14 @@ export default function About() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-mission-title">
               Our Mission & Goals
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {missions.map((mission, index) => (
-              <Card key={index} className="hover-elevate transition-all" data-testid={`card-mission-${index}`}>
+              <Card key={index} className="hover-elevate transition-all animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: `${index * 100}ms`, animationDuration: '600ms' }} data-testid={`card-mission-${index}`}>
                 <CardContent className="p-6 flex items-start gap-4">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold flex-shrink-0">
                     {index + 1}
@@ -84,14 +86,20 @@ export default function About() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4" data-testid="text-impact-title">
               Our Impact
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {impacts.map((impact, index) => (
-              <ImpactCard key={index} {...impact} />
+              <div
+                key={index}
+                className="animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${index * 100}ms`, animationDuration: '600ms' }}
+              >
+                <ImpactCard {...impact} />
+              </div>
             ))}
           </div>
         </div>
