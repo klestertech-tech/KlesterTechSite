@@ -96,7 +96,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <span className="text-sm text-muted-foreground" data-testid="text-footer-email">
-                  boopathy@klestertech.com
+                  klestertech@gmail.com
                 </span>
               </li>
             </ul>

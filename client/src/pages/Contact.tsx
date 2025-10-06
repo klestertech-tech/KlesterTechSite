@@ -18,7 +18,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "boopathy@klestertech.com",
+      content: "klestertech@gmail.com",
     },
     {
       icon: Clock,

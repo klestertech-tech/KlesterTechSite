@@ -140,7 +140,7 @@ export default function About() {
                   <div>
                     <p className="font-medium mb-1">Email</p>
                     <p className="text-sm text-muted-foreground" data-testid="text-email">
-                      boopathy@klestertech.com
+                      klestertech@gmail.com
                     </p>
                   </div>
                 </div>
