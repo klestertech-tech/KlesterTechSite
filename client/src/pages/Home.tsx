@@ -51,7 +51,8 @@ export default function Home() {
   return (
     <div>
       <Hero
-        logo="/attached_assets/logo_1759233854718.png"
+        title="Powering Your Future with Clean Energy"
+        subtitle="Leading provider of innovative solar energy solutions in Tamil Nadu. Transform your energy needs with sustainable, cost-effective solar power systems."
         backgroundImage={heroImage}
         showButtons={true}
       />

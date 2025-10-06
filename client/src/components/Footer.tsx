@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Sun, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,7 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/attached_assets/logo_1759233854718.png" alt="Klester Tech" className="h-10" />
+              <Sun className="h-8 w-8 text-primary" />
+              <span className="text-xl font-bold">Klester Tech</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Leading provider of innovative solar energy solutions in Tamil Nadu.
