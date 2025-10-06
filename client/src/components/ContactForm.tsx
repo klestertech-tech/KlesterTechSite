@@ -39,18 +39,45 @@ export default function ContactForm() {
 
   const onSubmit = async (data: InsertContact) => {
     setIsSubmitting(true);
-    console.log("Form submitted:", data);
-    // TODO: Add API call to submit contact form
-    setTimeout(() => {
-      setIsSubmitting(false);
+    
+    try {
+      const formData = new FormData();
+      formData.append("form-name", "contact");
+      formData.append("fullName", data.fullName);
+      formData.append("phone", data.phone);
+      formData.append("email", data.email);
+      formData.append("propertyType", data.propertyType);
+      if (data.monthlyBill) formData.append("monthlyBill", data.monthlyBill);
+      if (data.roofArea) formData.append("roofArea", data.roofArea);
+      if (data.requirements) formData.append("requirements", data.requirements);
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
       form.reset();
       alert("Thank you for your inquiry! We'll contact you soon.");
-    }, 1000);
+    } catch (error) {
+      alert("There was an error submitting the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="form-contact">
+      <form 
+        onSubmit={form.handleSubmit(onSubmit)} 
+        className="space-y-6" 
+        data-testid="form-contact"
+        name="contact"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         <div className="grid gap-6 md:grid-cols-2">
           <FormField
             control={form.control}
